@@ -1,0 +1,31 @@
+from PIL import Image
+
+def predict_car_details(image_path):
+    try:
+        img = Image.open(image_path)
+        img.show()
+    except FileNotFoundError:
+        print(f" File not found: {image_path}")
+        return
+    except Exception as e:
+        print(f" Error displaying image: {e}")
+        return
+
+    # Simulated prediction output
+    print("\n Top Predictions:")
+    simulated_labels = [
+        "car",
+        "vehicle",
+        "sedan",
+        "automobile",
+        "transport"
+    ]
+    for label in simulated_labels:
+        print(f"- {label}")
+
+if __name__ == "__main__":
+    image_path = input("Please enter the path to your car image file: ").strip()
+    if image_path:
+        predict_car_details(image_path)
+    else:
+        print(" No image path provided.")
